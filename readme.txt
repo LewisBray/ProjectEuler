@@ -1,6 +1,6 @@
 The idea for this repository is to work through the Project Euler problems
-in multiple languages.  At the moment I'm going to solve the problems in
-Python and C++ with potentially other languages getting added along the way.
+in multiple languages.  I'm going to solve the problems in Python, C++ and
+Haskell with no plans for any other languages at the moment.
 
 For C++ I'm going to aim at getting maximum performance.  If I understand
 Project Euler correctly, all of the information is known at compile-time
@@ -14,7 +14,8 @@ of every language and Python has features that aren't available to me in
 C++ like generator functions, etc... and I want to expose myself to these
 more.
 
-At the moment, the only other language that I would consider adding to the
-repository would probably be Haskell, being purely functional I want to be
-exposed to that paradigm and learn other programming concepts like monads,
-currying, etc... to see if it can make me more rounded.
+For Haskell I'm mostly just interested in learning a different paradigm to
+be more well-rounded and see if I can incorporate different concepts into
+my general toolbox like monads, currying, etc...  I imagine I'd most
+likely go for something like elegance with this language too but I'm
+restricted in different ways to Python so I think it's worthwhile.
