@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-constexpr int bitsNeededToRepresent(const int num) noexcept
+static constexpr int bitsNeededToRepresent(const int num) noexcept
 {
     for (int i = 31; i >= 0; --i)   // Start at highest bit and work down
         if ((0x1 << i) & num)       // First bit set is the highest...
@@ -22,7 +22,7 @@ constexpr int bitsNeededToRepresent(const int num) noexcept
 // needed to represent it.  However, we get compiler warnings if we try
 // to bit-shift more than 32 bits and so this overload exists to check
 // the top and 32-bit parts of a 64-bit int.
-constexpr int bitsNeededToRepresent(const int64_t num) noexcept
+static constexpr int bitsNeededToRepresent(const int64_t num) noexcept
 {
     const int numBitsNeededForTop32bits =
         bitsNeededToRepresent(static_cast<int>(num >> 32));
@@ -41,7 +41,7 @@ constexpr int bitsNeededToRepresent(const int64_t num) noexcept
 // root function.  This algorithm is guaranteed to quickly converge
 // (log time) to the floor of the square root which is perfect for
 // our situation.
-constexpr int64_t floorOfSqrt(const int64_t num) noexcept
+static constexpr int64_t floorOfSqrt(const int64_t num) noexcept
 {
     // Need our own ceil function as std::ceil is not constexpr
     constexpr auto ceil = [](const double num) noexcept {
@@ -60,7 +60,7 @@ constexpr int64_t floorOfSqrt(const int64_t num) noexcept
     }
 }
 
-constexpr bool isPrime(const int64_t num) noexcept
+static constexpr bool isPrime(const int64_t num) noexcept
 {
     if (num == 1)
         return false;
@@ -78,7 +78,7 @@ constexpr bool isPrime(const int64_t num) noexcept
 // that sets the number of loops allowed in a constexpr function to
 // 775200, to give us enough room to calculate our situation.  I'm
 // sure other compilers could do this too but I haven't checked.
-constexpr int64_t largestPrimeFactor(const int64_t num) noexcept
+static constexpr int64_t largestPrimeFactor(const int64_t num) noexcept
 {
     int64_t largest = 1;
     const int64_t sqrtNum = floorOfSqrt(num);

@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 
-constexpr int addMultiplesOf3And5(const int upTo) noexcept
+static constexpr int addMultiplesOf3And5(const int upTo) noexcept
 {
     int total = 0;
     for (int i = 0; i < upTo; ++i)

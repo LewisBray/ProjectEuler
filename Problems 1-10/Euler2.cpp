@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 
-constexpr int sumEvenFibonacci(const int notExceeding) noexcept
+static constexpr int sumEvenFibonacci(const int notExceeding) noexcept
 {
     int total = 0;
     int current = 1, previous = 0;
