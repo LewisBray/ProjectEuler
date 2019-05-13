@@ -43,7 +43,7 @@ static constexpr Fraction& operator*=(Fraction& lhs, Fraction&& rhs) noexcept
 // Function implementation uses the summation formula from 1 to k where each
 // term is given by (n + 1 - i) / i.  The helper function above helps prevent
 // any arithmetic overflow we could encounter with larger numbers.
-constexpr std::uint64_t choose(const unsigned n, const unsigned k) noexcept
+static constexpr std::uint64_t choose(const unsigned n, const unsigned k) noexcept
 {
     Fraction result;
     for (unsigned i = 1; i <= k; ++i)
