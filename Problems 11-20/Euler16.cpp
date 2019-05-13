@@ -1,4 +1,6 @@
-﻿#include <iostream>
+﻿// Compiled using clang with compiler flag -fconstexpr-steps=2000000
+
+#include <iostream>
 #include <array>
 
 // Helper struct to hold result from exponentiation.  We won't know in advance
@@ -23,31 +25,26 @@ static constexpr LargeNumber<Exponent> exponentiate() noexcept
 {
     static_assert(Base > 0 && Base < 10, "Must exponentiate a base between 1 and 9");
 
-    std::array<int, Exponent> digits{ Base };
-    int numDigits = 1;
+    LargeNumber<Exponent> result{ std::array<int, Exponent>{ Base }, 1 };
     
     for (int i = 1; i < Exponent; ++i)
     {
         int carry = 0;
-        for (int j = 0; j < numDigits; ++j)
+        for (int j = 0; j < result.numDigits; ++j)
         {
-            int& digit = digits[j];
+            int& digit = result.digits[j];
 
             const int product = digit * Base + carry;
 
             digit = product % 10;
             carry = product / 10;
-
-            if (j == numDigits - 1 && carry != 0)
-            {
-                digits[j + 1] = carry;
-                ++numDigits;
-                break;
-            }
         }
+
+        if (carry != 0)
+            result.digits[result.numDigits++] = carry;
     }
 
-    return { digits, numDigits };
+    return result;
 }
 
 template <int MaxDigits>
