@@ -1,10 +1,6 @@
 def load_numbers_grid(filename):
-    with open(filename, "r") as numbers_file:
-        numbers = list()
-        for line in numbers_file:
-            numbers.append(list(map((lambda n: int(n)), line.split())))
-
-        return numbers
+    with open(filename, "r") as num_file:
+        return [list(map(lambda c: int(c), line.split())) for line in num_file]
 
 def column_product(row, col, numbers):
     product = 1
