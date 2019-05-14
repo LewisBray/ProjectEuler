@@ -19,7 +19,3 @@ be more well-rounded and see if I can incorporate different concepts into
 my general toolbox like monads, currying, etc...  I imagine I'd most
 likely go for something like elegance with this language too but I'm
 restricted in different ways to Python so I think it's worthwhile.
-
-TO-DO:
- - Problem 10 in C++, I keep hitting the constexpr limits on Compiler
-   Explorer, need to try compiling locally on Linux with gcc/clang.
